@@ -40,3 +40,32 @@ import './style.css'
   });
 
   observer2.observe(links);
+
+
+//   let changingText = document.querySelector(".changing-text");
+    let text = document.querySelector(".changing-text")
+    let arr = ["Programer","Frontend Developer","Freelancer"];
+    let wordindex = 0;
+    let charindex = 0;
+    let isDeleting = false;
+
+    function typeWriter (){
+        let currentword = arr[wordindex]
+        if(isDeleting){
+            charindex--
+        }else{
+            charindex++
+        }
+
+        text.textContent = currentword.substring(0,charindex)
+
+        if(!isDeleting && charindex === currentword.length){
+            setTimeout(() => isDeleting = true,1000);
+        }else if(isDeleting && charindex === 0){
+            isDeleting = false
+            wordindex = (wordindex + 1) % arr.length
+        }
+        setTimeout(typeWriter,isDeleting ? 100:200)
+    }
+    typeWriter()
+  
