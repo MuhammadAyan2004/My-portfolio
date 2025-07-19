@@ -17,9 +17,26 @@ html,body{
   justify-content: space-between;
   padding: 60px 40px;
 }
+.menu{
+  width: 8vh;
+  height: 8vh;
+  border-radius: 50%;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background-color: darkslateblue;
+  color: white;
+  font-size: 20px;
+  position: fixed;
+  top: 10px;
+  right: 20px;
+  display: none;
+  z-index: 99;
+}
 .side-part{
   width: 30%;
   display: block;
+  position: relative;
 }
 .sidebar{
   width: 40vh;
@@ -29,10 +46,10 @@ html,body{
   inset 1px 1px 5px rgba(255, 255, 255, 0.1), 
   inset -1px -1px 5px rgba(0, 0, 0, 0.1);
   padding: 20px 30px 30px 20px;
-  position: fixed;
   border-top-left-radius: 50px;
   border-bottom-right-radius: 50px;
   cursor: pointer;
+  position: fixed;
 }
 .first-links{
   width: 100%;
@@ -43,9 +60,10 @@ html,body{
   font-size: 18px;
   font-weight: 500;
 }
-.hover:hover,.hover a:hover{
+.hover:hover,.hover a:hover{ 
   color: darkslateblue;
-}
+} 
+
 .hover a{
   color:#F8F9FA;
   text-decoration: none;
@@ -168,9 +186,9 @@ html,body{
   padding-block: 20px;
   font-weight: 100;
   word-spacing: 2px;
-  padding-right: 10px;
+  /* padding-right: 10px; */
   color: #E9ECEF;
-  text-align: justify;
+  /* text-align: justify; */
 }
 .h-left button{
   width: 22vh;
@@ -305,7 +323,6 @@ html,body{
   -3px -3px 5px rgba(255, 255, 255, 0.1),
   inset 1px 1px 2px rgba(255, 255, 255, 0.1), 
   inset -1px -1px 10px rgba(0, 0, 0, 1);
-
 }
 .folio-box img{
   width: 200px;
@@ -331,11 +348,12 @@ html,body{
   outline: none;
   color: white;
   font-size: 16px;
+  cursor: pointer;
 }
 
 .a-right{
   width: 100%;
-  height: 100vh;
+  /* height: 100vh; */
   padding: 10px;
 }
 .btn-c{
@@ -518,7 +536,7 @@ html,body{
 
 #folio{
   width: 100%;
-  height: 400vh;
+  /* height: 400vh; */
   text-align: center;
   margin-top: 50px;
 }
@@ -534,24 +552,32 @@ html,body{
   width: 100%;
   height: 100%;
   padding: 50px 20px;
-  display: grid;
+  /* display: grid;
   grid-template-columns: repeat(2,1fr);
-  gap: 120px;
+  gap: 120px; */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10vh;
 }
 .folios .img{
-  width: 60vh;
+  width: 65vh;
   height: 75vh;
   background-color: #1E2124;
   padding: 10px;
   border-radius: 20px;
-    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5),
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5),
   -3px -3px 5px rgba(255, 255, 255, 0.1),
   inset 1px 1px 5px rgba(255, 255, 255, 0.1), 
   inset -1px -1px 5px rgba(0, 0, 0, 0.1);
 }
+.img .mainImg{
+  width: 100%;
+  height: 230px;
+  overflow: hidden;
+}
 .img img{
   width: 100%;
-  height: 200px;
+  height: 230px;
   object-fit: contain;
 }
 .folio-name{
@@ -751,31 +777,164 @@ footer{
 
 /* responsiveness */
 
-@media only screen and (max-width: 767px){
-  #contact{
-    padding: 0px;
-    padding-left:10px;
+
+@media only screen and (max-width: 1200px) {
+  .sidebar{
+    left: -200vh;
+    z-index: 1;
   }
-  .form{
-    width: 100%;
+  .menu{
+    display: block;
+  }
+}
+
+@media only screen and (max-width: 1024px){
+  .menu{
+    display: block;
   }
   .side-part{
     display: none;
   }
   #home{
-    height: 130vh;
-    padding: 2vh;
+    height: 70vh;
+  }
+  .block-1{
+    width: 50%;
+    height: 50vh;
+    top: 10vh;
+    left: 10px;
+  }
+  .block-2{
+    width: 50%;
+    height: 50vh;
+    top: 5vh;
+    right: 10px;
+
+  }
+  .my-pic img{
+    width: 30vh;
+    height: 40vh;
+  }
+  .my-pic::after{
+  content: "";
+  position: absolute;
+  width: 30vh;
+  height: 40vh;
+}
+#about{
+  height: 105vh;
+}
+.block-3{
+  width: 40%;
+  height: 100%;
+  top: 10px;
+  left: 3vh;
+  
+}
+.block-4{
+  width: 50%;
+  top: 10px;
+  right: 1vh;
+  padding: 20px;
+}
+.folio-box{
+  height: 55vh;
+}
+.resume button{
+  margin-top: 0vh;
+}
+
+#folio{
+  width: 100%;
+  margin-block: 10vh;
+}
+
+.folios{
+  width: 100%;
+  height: 100%;
+  padding: 0px 0px;
+  display: flex;
+  flex-direction: column;
+  margin-block: 5vh;
+}
+.folios .img{
+ width: 45vh;
+ height: 55vh;
+ padding: 30px;
+ margin-left: 12vh;
+}
+
+.img img{
+  width: 100%;
+  height: 300px;
+  object-fit: contain;
+}
+
+.folio-name{
+  margin-block: 30px 10px;
+}
+.btn-4{
+  margin-block: 30px;
+}
+.descript{
+  font-size: 18px;
+  margin-block: 20px;
+}
+.img a button{
+  width: 100%;
+  height: 6vh;
+  margin-top: 50px;
+}
+.container{
+  padding: 0px 0px;
+}
+#social-links{
+  height: 80vh;
+}
+.b-1{top: 10px;}
+.b-2{top: 10px;}
+.b-3{top: 15vh;}
+.b-4{top: 15vh;}
+.b-5{top: 30vh;}
+.btn-5{width: 47%;}
+
+.circle{
+  width: 65vh;
+  height: 65vh;
+}
+.circle-inner{
+  width: 80%;
+  height: 80%;
+}
+.circle-inner div {
+  width: 10vh;
+  height: 10vh;
+}
+
+#contact{
+  padding: 0px;
+  padding-left:10px;
+}
+.form{
+  width: 100%;
+}
+} 
+
+@media only screen and (max-width: 900px){
+  #home{
+    height: 100vh;
   }
   .block-1{
     width: 100%;
-    top: 50vh;
+    top: 52vh;
     left: 10vh;
   }
   .block-2{
     width: 100%;
     height: 70vh;
     border-radius: 50%;
-    left: 30vh;
+    top: 0vh;
+    left: 10vh;
 
   }
   .h-right{
@@ -794,179 +953,292 @@ footer{
   position: absolute;
   width: 40vh;
   height: 40vh;
-  background-color: darkslateblue;
   top: 2vh;
   left: 15px;
   border-radius: 50%;
-  box-shadow: -3px -3px 5px rgba(0, 0, 0, 0.5) inset ;
+}
+#folio{
+  width: 100%;
+  margin-block: 10vh;
+}
+
+.folios{
+  width: 100%;
+  height: 100%;
+  padding: 0px 0px;
+  display: flex;
+  flex-direction: column;
+  margin-block: 5vh;
+}
+.folios .img{
+ width: 45vh;
+ height: 65vh;
+ padding: 30px;
+ margin-left: 12vh;
 }
 #about{
-  height: 225vh;
+  height: 140vh;
+}
+
+.circle{
+  width: 45vh;
+  height: 45vh;
+}
+.circle-inner{
+  width: 50%;
+  height: 50%;
+}
+.circle-inner div {
+  width: 8vh;
+  height: 8vh;
+}
+} 
+
+
+@media only screen and (max-width: 800px)  {
+.folios .img{
+  width: 45vh;
+  height: 65vh;
+  padding: 30px;
+  margin-left: 12vh;
+}
+.folio-name{
+  margin-block: 10px;
+}
+.btn-4{
+  margin-block: 10px;
+}
+.img a button{
+  width: 100%;
+  height: 6vh;
+  margin-top: 20px;
+}
+}
+
+
+@media only screen and (max-width: 767px){
+.menu{
+  right: 6vh;
+}
+#home{
+  height: 100vh;
+  padding: 2vh;
+}
+.block-1{
+  left: 6vh;
+}
+.block-2{
+  width: 100%;
+  height: 70vh;
+  border-radius: 50%;
+  top: 0;
+  left: 8vh;
 }
 .block-3{
-  width: 90%;
-  height: 100%;
+  width: 100%;
   top: 10px;
-  left: 3vh;
-  
+  left: 10px;
 }
 .block-4{
   width: 100%;
-  top: 85vh;
+  top: 60vh;
   left: 1vh;
-  padding: 20px;
 }
-.resume button{
+.folio-box{
+  width: 50vh;
+  height: 50vh;
+}
+#about{
+  height: 165vh;
+}
+
+.folios .img{
+ margin-left: 6vh;
+}
+
+#social-links{
+  height: 80vh;
+}
+} 
+
+
+@media only screen and (max-width: 600px){
+.block-1{
   width: 100%;
-  height: 8vh;
-  margin-top: 10vh;
+  top: 50vh;
+  left: 6vh;
 }
-  .folios{
-    grid-template-columns: 1fr 1fr;
-    gap: 0px;
-  }
-  #folio{
-    height: 350vh;
-  }
-  .container{
-    padding: 0px 0px;
-  }
-  .folios .img{
-    width: 90%;
-    height: 90%;
-  }
-  .b-1{top: 10px;}
-  .b-2{top: 10px;}
-  .b-3{top: 15vh;}
-  .b-4{top: 15vh;}
-  .b-5{top: 30vh;}
-  .btn-5{
-    width: 47%;
-  }
-  #social-links{
-    height: 80vh;
-  }
-  .circle{
-    width: 40vh;
-    height: 40vh;
-  }
-  .circle-inner{
-    width: 85%;
-    height: 85%;
-  }
-  .circle-inner div {
-    width: 8vh;
-    height: 8vh;
-  }
-} 
-
-
-@media only screen and (max-width: 620px){
-  .block-1{
-    width: 100%;
-    top: 50vh;
-    left: 10vh;
-  }
-  .block-2{
-    width: 100%;
-    height: 70vh;
-    border-radius: 50%;
-    left: 30vh;
-  }
-  .h-right{
-    border-radius: 50%;
-  }
-  .my-pic{
-    border-radius: 50%;
-  }
-  .my-pic img{
-    width: 40vh;
-    height: 40vh;
-    border-radius: 50%;
-  }
+.block-2{
+  width: 100%;
+  height: 70vh;
+  border-radius: 50%;
+  left: 10vh;
+}
 #about{
-  height: 225vh;
+  height: 210vh;
 }
-  .folios{
-    grid-template-columns: 1fr;
-    gap: 10px;
-    padding-inline: 15vh 0vh;
-  }
-  #folio{
-    height: 650vh;
-  }
-  .folios .img{
-    width: 80%;
-    height: 97%;
-  }
-  .b-1{top: 10px;}
-  .b-2{top: 10px;}
-  .b-3{top: 15vh;}
-  .b-4{top: 15vh;}
-  .b-5{top: 30vh;}
-  .btn-5{
-    width: 47%;
-  }
-  #social-links{
-    height: 80vh;
-  }
-} 
-
-
-
-@media only screen and (max-width: 480px){
-
-  .block-1{
-    width: 100%;
-    top: 50vh;
-    left: 0vh;
-  }
-  .block-2{
-    width: 100%;
-    height: 70vh;
-    border-radius: 50%;
-    left: 0vh;
-  }
-  .h-right{
-    border-radius: 50%;
-  }
-  .my-pic{
-    border-radius: 50%;
-  }
-  .my-pic img{
-    width: 40vh;
-    height: 40vh;
-    border-radius: 50%;
-  }
-#about{
-  height: 235vh;
+.block-4{
+  top: 80vh;
 }
-  .folios{
-    grid-template-columns: 1fr;
-    gap: 0px;
-    padding-inline: 20px 0px;
-  }
-  #folio{
-    height: 500vh;
-  }
-  .folios .img{
-    width: 90%;
-    max-height: 90%;
-  }
-  .b-1{top: 10px;}
-  .b-2{top: 15vh; left: 10px;}
-  .b-3{top: 30vh;}
-  .b-4{top: 45vh; left: 10px;}
-  .b-5{top: 60vh;}
-  .btn-5{
-    width: 35vh;
-  }
+.folio-box{
+  width: 60vh;
+  height: 80vh;
+}
+.folios .img{
+ width: 65vh;
+ height: 85vh;
+ padding: 30px;
+ margin-left: 5vh;
+}
+.folio-name{
+  margin-block: 0px ;
+}
+.btn-4{
+  margin-block: 10px;
+}
+.descript{
+  font-size: 18px;
+  margin-block: 20px;
+}
+.img a button{
+  width: 100%;
+  height: 6vh;
+  margin-top: 10px;
+}
+.b-1{top: 10px;}
+.b-2{top: 15vh; left: 10px;}
+.b-3{top: 30vh;}
+.b-4{top: 45vh; left: 10px;}
+.b-5{top: 60vh;}
+.btn-5{width: 90%;}
   #social-links{
     height: 100vh;
   }
-  .form{
-    width: 95%;
-  }
+} 
+
+@media only screen and (max-width: 480px){
+#home{
+  height: 110vh;
+  padding: 0vh;
+}
+.block-1{
+  width: 100%;
+  top: 40vh;
+  left: 1vh;
+}
+.block-2{
+  width: 100%;
+  height: 70vh;
+  border-radius: 50%;
+  top: 10px;
+  left: 0vh;
+}
+.my-pic img{
+  width: 30vh;
+  height: 30vh;
+}
+.my-pic::after{
+  content: "";
+  position: absolute;
+  width: 30vh;
+  height: 30vh;
+  top: 2vh;
+  left: 15px;
+}
+#about{
+  height: 200vh;
+}
+.folio-box{
+  width: 40vh;
+  height: 65vh;
+}
+.block-3{
+  left:0;
+}
+.block-4{
+  top: 70vh;
+  left: 0px;
+}
+
+.s-h1::before{
+  content: "_____";
+  left: -10vh;
+}
+.s-h1::after{
+  content: "_____";
+  right: -10vh;
+}
+
+.circle{
+  width: 30vh;
+  height: 30vh;
+}
+.circle-inner{
+  width: 100%;
+  height: 100%;
+}
+.circle-inner div {
+  width: 5vh;
+  height: 5vh;
+}
+
+.folios .img{
+ width: 44vh;
+ height: 75vh;
+ padding: 30px;
+ margin-left: 4px;
+}
+.folio-name{
+  margin-block: 0px ;
+}
+.btn-4{
+  margin-block: 10px;
+}
+.descript{
+  font-size: 18px;
+  margin-block: 20px;
+}
+.img a button{
+  width: 100%;
+  height: 6vh;
+  margin-top: 10px;
+}
+.form{
+  width: 95%;
+  margin-left: 10px;
+}
+} 
+
+@media only screen and (max-width: 400px){
+#about{
+  height: 235vh;
+}
+.resume button{
+  margin-top: 10vh;
+}
+.folio-box{
+  width: 45vh;
+  height: 75vh;
+}
+.block-4{
+  top: 80vh;
+}
+.s-h1::before{
+  content: "_____";
+  left: -14vh;
+}
+.s-h1::after{
+  content: "_____";
+  right: -14vh;
+}
+
+.folios .img{
+ width: 45vh;
+ height: 80vh;
+ padding: 30px;
+ margin-left: 2px;
+}
+
 } 
 
 
