@@ -115,20 +115,24 @@ typeWriter()
 
 let menu = document.querySelector(".menu")
 let sidebar = document.querySelector(".sidebar")
+let sidepart = document.querySelector(".side-part")
 let close = `<i class="ri-close-fill"></i>`;
 let m2 = `<i class="ri-menu-line"></i>`;
 
 menu.addEventListener("click", () => {
     if (menu.innerHTML == m2) {
-        sidebar.style.left = "20px"
+        // sidebar.style.left = "20px"
+        sidepart.style.display = "block"
         menu.innerHTML = close;
     } else if (menu.innerHTML == close) {
-        sidebar.style.left = "-200vh"
+        // sidebar.style.left = "-200vh"
+        sidepart.style.display = "none"
         menu.innerHTML = m2;
     }
     sidebar.addEventListener("click",(e)=>{
         if(e.target.tagName === "A" || e.target.classList.contains("s")){
-            sidebar.style.left = "-200vh"
+            // sidebar.style.left = "-200vh"
+            sidepart.style.display = "none"
             if(menu.innerHTML == close){
                 menu.innerHTML = m2
             }
