@@ -13,8 +13,8 @@ html,body{
 }
 .container{
   width: 100%;
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 300px 1fr;
   padding: 60px 40px;
 }
 .menu{
@@ -50,6 +50,7 @@ html,body{
   border-bottom-right-radius: 50px;
   cursor: pointer;
   position: fixed;
+  display: block;
 }
 .first-links{
   width: 100%;
@@ -563,21 +564,25 @@ html,body{
   width: 65vh;
   height: 75vh;
   background-color: #1E2124;
-  padding: 10px;
+  padding: 20px;
   border-radius: 20px;
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5),
   -3px -3px 5px rgba(255, 255, 255, 0.1),
   inset 1px 1px 5px rgba(255, 255, 255, 0.1), 
   inset -1px -1px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
 }
 .img .mainImg{
   width: 100%;
-  height: 230px;
-  overflow: hidden;
+  height: 25vh;
 }
 .img img{
   width: 100%;
-  height: 230px;
+  height: 25vh;
   object-fit: contain;
 }
 .folio-name{
@@ -743,6 +748,29 @@ textarea.contact-input {
   padding: 0 5px;
 }
 
+.btn-6{
+  width: 100%;
+  height: 10vh;
+  font-size: 18px;
+  text-align: center;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  color: white;
+  margin-top: 15px;
+  background-color: darkslateblue;
+  box-shadow: 
+    3px 3px 1px rgba(0, 0, 0,0.7),
+    -3px -3px 1px rgba(110, 110, 110, 0.5),
+    inset 1px 1px 1px rgba(255, 255, 255, 0.1), 
+    inset -1px -1px 4px rgba(0, 0, 0, 1);
+    cursor: pointer;
+}
+.btn-6:hover{
+  margin-top: 10px;
+}
+
 /* Float on focus or valid input */
 .contact-input:focus + label,
 .contact-input:valid + label {
@@ -778,22 +806,33 @@ footer{
 /* responsiveness */
 
 
-@media only screen and (max-width: 1200px) {
+/* @media only screen and (max-width: 1200px) {
   .sidebar{
-    left: -200vh;
+    display: none;
     z-index: 1;
   }
   .menu{
     display: block;
   }
-}
+} */
 
 @media only screen and (max-width: 1024px){
+.container{
+  padding: 0px 0px;
+  grid-template-columns: 1fr;
+}
+  .side-part{
+    position: fixed;
+    display: none;
+    z-index: 1;
+    top: 10vh;
+    left: 20px;
+  }
+  .sidebar{
+    width: 30vh;
+  }
   .menu{
     display: block;
-  }
-  .side-part{
-    display: none;
   }
   #home{
     height: 70vh;
@@ -844,50 +883,7 @@ footer{
   margin-top: 0vh;
 }
 
-#folio{
-  width: 100%;
-  margin-block: 10vh;
-}
 
-.folios{
-  width: 100%;
-  height: 100%;
-  padding: 0px 0px;
-  display: flex;
-  flex-direction: column;
-  margin-block: 5vh;
-}
-.folios .img{
- width: 45vh;
- height: 55vh;
- padding: 30px;
- margin-left: 12vh;
-}
-
-.img img{
-  width: 100%;
-  height: 300px;
-  object-fit: contain;
-}
-
-.folio-name{
-  margin-block: 30px 10px;
-}
-.btn-4{
-  margin-block: 30px;
-}
-.descript{
-  font-size: 18px;
-  margin-block: 20px;
-}
-.img a button{
-  width: 100%;
-  height: 6vh;
-  margin-top: 50px;
-}
-.container{
-  padding: 0px 0px;
-}
 #social-links{
   height: 80vh;
 }
@@ -1195,7 +1191,7 @@ footer{
   margin-block: 10px;
 }
 .descript{
-  font-size: 18px;
+  font-size: 16px;
   margin-block: 20px;
 }
 .img a button{
@@ -1234,14 +1230,52 @@ footer{
 
 .folios .img{
  width: 45vh;
- height: 80vh;
+ height: 70vh;
+ padding: 30px;
+ margin-left: 2px;
+}
+.img img{
+  margin-top:-5vh ;
+}
+} 
+
+@media only screen and (max-width: 380px){
+.folios .img{
+ width: 52vh;
+ height: 78vh;
+ padding: 30px;
+ margin-left: 2px;
+}
+.img img{
+  height: 180px;
+  margin-top:1vh ;
+}
+
+.btn-4{
+  margin-block: 10px 5px;
+}
+.descript{
+  font-size: 14px;
+  margin-block: 10px;
+}
+} 
+
+@media only screen and (max-width: 360px){
+.folios .img{
+ width: 52vh;
+ height: 70vh;
  padding: 30px;
  margin-left: 2px;
 }
 
 } 
 
+@media only screen and (max-width: 345px){
+.folios .img{
+ width: 38vh;
+ height: 60vh;
+ padding: 30px;
+ margin-left: 2px;
+}
 
-
-
-
+} 
